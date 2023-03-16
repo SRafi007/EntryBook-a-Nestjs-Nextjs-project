@@ -1,0 +1,73 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding: 0 2rem;
+    background-color: #00d5a7;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .navlinks{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 1.5rem;
+  }
+  
+  .nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #0077ff;
+  }
+  
+  .table {
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(245, 243, 244, 0.15);
+   
+  }
+  
+  .table thead th {
+    background-color: #00d5a7;
+    border-bottom: 0.2rem solid #ebebeb;
+    text-align: left;
+    padding: 1rem;
+    font-weight: bold;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #2d385d;
+  }
+  
+  .table tbody td {
+    border-bottom: 0.1rem solid #003d50;
+    padding: 0.8rem;
+  }
+  
+  .table tbody td:first-child {
+    font-weight: bold;
+  }
+  
