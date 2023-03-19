@@ -20,7 +20,7 @@ export class EntrybookDTO{
 }
 
 export class employeeDTO{
-     @IsNotEmpty()
+    @IsNotEmpty()
 
     name:string;
     @IsNotEmpty()
@@ -31,10 +31,16 @@ export class employeeDTO{
     phoneNumber:string;
 
     @IsNotEmpty()
-    position:string;
-    
+    jobType:string;
+
+    @IsNotEmpty()
+    department:string;
+
     @IsNotEmpty()
     employeeID:string;
+    
+    @IsNotEmpty()
+    joiningDate:Date;
 }
 export class entryDTO{
     @IsNotEmpty()
@@ -63,3 +69,18 @@ export class tempEntryDTO{
     @IsOptional()
     currDate:Date;
 }
+export class WorkdayDTO {
+
+
+    @IsNotEmpty()
+    workingDay: string;
+  
+    @IsOptional()
+    attendance: number;
+  
+    @IsOptional()
+    productiveHours: number;
+  
+    @IsOptional()
+    markTheDayAs: string;
+  }

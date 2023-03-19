@@ -1,4 +1,5 @@
 import {Entity,Column,PrimaryGeneratedColumn,ManyToOne,OneToMany} from 'typeorm';
+import { EntryEvent } from './entryEvent.entity';
 @Entity('entryBook')
 export class EntryBook{
     @PrimaryGeneratedColumn()
@@ -14,7 +15,11 @@ export class EntryBook{
     @Column({nullable:true})
     status: string;
     @Column({nullable:true})
-    currDate: Date;
+    workingHour: Date;
+    @Column({nullable:true})
+    entryEventId: number;
+    @ManyToOne(() => EntryEvent, entryEvent => entryEvent.entryBook)
+   entryEvent: EntryEvent;
 
 }
 

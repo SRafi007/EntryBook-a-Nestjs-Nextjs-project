@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react';
 //import './styles/Dashboard.css';
 import styles from '../styles/Dashboard.module.css';
 //import '../styles/globals.css'
+import Mynavbar from '../components/Mynavbar';
+import Sidebar from '../components/Sidebar';
 
 function Dashboard() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
+      const initialData =await fetch('/api/entryEventGenarator');
       const res = await fetch('/api/employees');
       const json = await res.json();
       setData(json);
@@ -17,48 +20,40 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-            <nav className={styles.navbar}>
-        <a href="#" className={styles.navbar}>
-          EntryBook
-        </a>
-        <ul className={styles.navlinks}>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About Us</a>
-          </li>
-          <li>
-            <a href="#">Contact Us</a>
-          </li>
-        </ul>
-      </nav>
+            <Mynavbar/>
+            <Sidebar/>
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>SL. No</th>
+            <th>Employee ID</th>
             <th>Name</th>
-            <th>Position</th>
+            <th>Department</th>
+            <th>Type</th>
             <th>Email</th>
             <th>Phone Number</th>
-            <th>Employee ID</th>
+            <th>Joining Date</th>
+            
           </tr>
         </thead>
         <tbody>
           {data ? (
             data.map((employee) => (
               <tr key={employee.id}>
+                <td>{employee.employeeID}</td>
                 <td>{employee.id}</td>
                 <td>{employee.name}</td>
-                <td>{employee.position}</td>
+                <td>{employee.department}</td>
+                <td>{employee.jobType}</td>
                 <td>{employee.mail}</td>
                 <td>{employee.phoneNumber}</td>
-                <td>{employee.employeeID}</td>
+                <td>{employee.joiningDate}</td>
+                
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="5">Loading data...</td>
+              <td colSpan="8">Loading data...</td>
             </tr>
           )}
         </tbody>

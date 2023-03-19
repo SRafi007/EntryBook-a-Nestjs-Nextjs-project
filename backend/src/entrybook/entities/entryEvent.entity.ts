@@ -1,13 +1,18 @@
-import {Entity,Column,PrimaryGeneratedColumn,ManyToOne,OneToMany} from 'typeorm';
-@Entity()
+import {Entity,Column,PrimaryGeneratedColumn,ManyToOne,OneToMany,CreateDateColumn} from 'typeorm';
+import { EntryBook } from './entry.entity';
+@Entity('entryEvents')
 export class EntryEvent{
     @PrimaryGeneratedColumn()
     id: number;
     @Column()
-    entryTime: Date;
-    @Column()
-    exitTime: Date;
-    @Column()
-    EmployeeId:number;
-
+    workingDay:string;
+    @Column({nullable:true})
+    attendance:number;
+    @Column({nullable:true})
+    productiveHours:number;
+    @Column({nullable:true})
+    markTheDayAs:string;
+    @OneToMany(() => EntryBook, entryBook => entryBook.entryEvent)
+    entryBook: EntryBook[];
+   
 }

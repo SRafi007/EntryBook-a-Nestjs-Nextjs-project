@@ -10,9 +10,13 @@ export class Employee{
     @Column()
     phoneNumber: string;
     @Column()
-    position: string;
+    department: string;
+    @Column()
+    jobType: string;
     @Column()
     employeeID: string;
+    @Column()
+    joiningDate: Date;
     @Column({type:'timestamp',default:()=>'CURRENT_TIMESTAMP',nullable:true})
     date: Date;
 
